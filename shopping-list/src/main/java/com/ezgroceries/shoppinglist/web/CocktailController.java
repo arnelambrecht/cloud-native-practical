@@ -18,7 +18,7 @@ import java.util.UUID;
 public class CocktailController {
 
     @GetMapping
-    public List<CocktailResource> get(@RequestParam String search) {
+    public List<CocktailResource> getCocktails(@RequestParam String search) {
         return getDummyResources();
     }
 

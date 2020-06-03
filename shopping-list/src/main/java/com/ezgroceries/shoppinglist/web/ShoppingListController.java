@@ -39,12 +39,12 @@ public class ShoppingListController {
     }
 
     @GetMapping
-    public List<ShoppingListResource> get() {
+    public List<ShoppingListResource> getShoppingLists() {
         return getDummyShoppingListResourceList();
     }
 
     @GetMapping(value = "/{shoppingListId}")
-    public ShoppingListResource get(@PathVariable String shoppingListId) {
+    public ShoppingListResource getShoppingList(@PathVariable String shoppingListId) {
         return getDummyShoppingListResource();
     }
 
