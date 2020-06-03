@@ -1,16 +1,19 @@
 package com.ezgroceries.shoppinglist.internal.cocktail;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
 public class CocktailResource {
+    /* FIELDS */
+
     private UUID cocktailId;
     private String name;
     private String glass;
     private String instructions;
     private String image;
     private List<String> ingredients;
+
+    /* CONSTRUCTORS */
 
     public CocktailResource(UUID cocktailId, String name, String glass, String instructions, String image, List<String> ingredients) {
         this.cocktailId = cocktailId;
@@ -20,6 +23,8 @@ public class CocktailResource {
         this.image = image;
         this.ingredients = ingredients;
     }
+
+    /* GETTERS & SETTERS */
 
     public UUID getCocktailId() {
         return cocktailId;
