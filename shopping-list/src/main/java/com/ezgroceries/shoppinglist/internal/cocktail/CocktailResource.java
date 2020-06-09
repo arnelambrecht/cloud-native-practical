@@ -24,6 +24,10 @@ public class CocktailResource {
         this.ingredients = ingredients;
     }
 
+    public CocktailResource() {
+
+    }
+
     /* GETTERS & SETTERS */
 
     public UUID getCocktailId() {

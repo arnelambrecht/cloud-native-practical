@@ -1,14 +1,14 @@
 package com.ezgroceries.shoppinglist.web;
 
-import com.ezgroceries.shoppinglist.internal.cocktail.CocktailResource;
+import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBService;
+import com.ezgroceries.shoppinglist.internal.cocktail.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * A controller handling requests for CRUD operations on Cocktails
@@ -16,13 +16,17 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/cocktails", produces = "application/json")
 public class CocktailController {
+    @Autowired
+    public CocktailService cocktailService;
 
     @GetMapping
     public List<CocktailResource> getCocktails(@RequestParam String search) {
-        return getDummyResources();
+        return cocktailService.searchCocktails(search);
+
+        //return getDummyResources();
     }
 
-    private List<CocktailResource> getDummyResources() {
+    /*private List<CocktailResource> getDummyResources() {
         return Arrays.asList(
                 new CocktailResource(
                         UUID.fromString("23b3d85a-3928-41c0-a533-6538a71e17c4"), "Margerita",
@@ -36,5 +40,5 @@ public class CocktailController {
                         "Rub rim of cocktail glass with lime juice. Dip rim in coarse salt..",
                         "https://www.thecocktaildb.com/images/media/drink/qtvvyq1439905913.jpg",
                         Arrays.asList("Tequila", "Blue Curacao", "Lime juice", "Salt")));
-    }
+    }*/
 }
