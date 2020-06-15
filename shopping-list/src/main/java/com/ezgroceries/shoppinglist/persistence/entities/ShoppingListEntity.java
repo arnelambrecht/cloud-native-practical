@@ -1,0 +1,45 @@
+package com.ezgroceries.shoppinglist.persistence.entities;
+
+import javax.persistence.*;
+import java.util.UUID;
+
+@Entity
+@Table(name = "shopping_list")
+public class ShoppingListEntity {
+    /* FIELDS */
+
+    @Id
+    @Column(name = "id")
+    private UUID entityId;
+
+    @Column(name = "name")
+    private String name;
+
+    /* CONSTRUCTORS */
+
+    public ShoppingListEntity() {
+    }
+
+    public ShoppingListEntity(UUID entityId, String name) {
+        this.entityId = entityId;
+        this.name = name;
+    }
+
+    /* GETTERS & SETTERS */
+
+    public UUID getEntityId() {
+        return entityId;
+    }
+
+    public void setEntityId(UUID entityId) {
+        this.entityId = entityId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

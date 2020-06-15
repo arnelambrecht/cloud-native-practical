@@ -3,6 +3,8 @@ package com.ezgroceries.shoppinglist.controllers;
 import com.ezgroceries.shoppinglist.controllers.contracts.CocktailId;
 import com.ezgroceries.shoppinglist.controllers.contracts.ShoppingListCreateRequest;
 import com.ezgroceries.shoppinglist.model.ShoppingListResource;
+import com.ezgroceries.shoppinglist.services.ShoppingListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,21 +16,24 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/shopping-lists", produces = "application/json")
 public class ShoppingListController {
+    private ShoppingListService shoppingListService;
+
+    @Autowired
+    public ShoppingListController(ShoppingListService shoppingListService) {
+        this.shoppingListService = shoppingListService;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ShoppingListResource createShoppingList(@RequestBody ShoppingListCreateRequest shoppingListCreateRequest) {
-        // Create a new shoppingList and store it...
-        // Right now the id is set manually.
-        return new ShoppingListResource(shoppingListCreateRequest.getName());
+        return shoppingListService.create(new ShoppingListResource(shoppingListCreateRequest.getName()));
     }
 
     @PostMapping(value = "/{shoppingListId}/cocktails")
     @ResponseStatus(HttpStatus.CREATED)
     public List<CocktailId> addCocktails(@PathVariable String shoppingListId, @RequestBody ArrayList<CocktailId> cocktailIds) {
         // Search for the shopping list based on the shoppingListId and save each cocktailID if that cocktail exists...
-
-        return cocktailIds;
+        return shoppingListService.addCocktailsToShoppingList(UUID.fromString(shoppingListId), cocktailIds);
     }
 
     @GetMapping

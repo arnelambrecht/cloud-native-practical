@@ -31,6 +31,10 @@ public class CocktailService {
         return this.mergeCocktails(drinkResourceList);
     }
 
+    public Boolean cocktailExist (UUID cocktailId) {
+        return (this.cocktailRepository.countByEntityId(cocktailId) > 0);
+    }
+
     /* PRIVATE METHODS */
 
     public List<CocktailResource> mergeCocktails(List<CocktailDBResponse.DrinkResource> drinks) {

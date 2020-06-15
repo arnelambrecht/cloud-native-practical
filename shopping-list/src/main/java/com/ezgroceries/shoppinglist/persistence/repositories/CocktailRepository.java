@@ -12,4 +12,6 @@ public interface CocktailRepository extends Repository<CocktailEntity, UUID> {
 
     CocktailEntity save(CocktailEntity cocktailEntity);
 
+    long countByEntityId(UUID cocktailId);
+
 }

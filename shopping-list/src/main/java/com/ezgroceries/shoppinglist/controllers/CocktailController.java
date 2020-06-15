@@ -21,8 +21,12 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping(value = "/cocktails", produces = "application/json")
 public class CocktailController {
+    private CocktailService cocktailService;
+
     @Autowired
-    public CocktailService cocktailService;
+    public CocktailController(CocktailService cocktailService) {
+        this.cocktailService = cocktailService;
+    }
 
     @GetMapping
     public List<CocktailResource> getCocktails(@RequestParam String search) {
@@ -31,7 +35,7 @@ public class CocktailController {
         //return getDummyResources();
     }
 
-    private List<CocktailResource> getDummyResources() {
+    /*private List<CocktailResource> getDummyResources() {
         return Arrays.asList(
                 new CocktailResource(
                         UUID.fromString("23b3d85a-3928-41c0-a533-6538a71e17c4"), "Margerita",
@@ -45,5 +49,5 @@ public class CocktailController {
                         "Rub rim of cocktail glass with lime juice. Dip rim in coarse salt..",
                         "https://www.thecocktaildb.com/images/media/drink/qtvvyq1439905913.jpg",
                         Stream.of("Tequila", "Blue Curacao", "Lime juice", "Salt").collect(Collectors.toSet())));
-    }
+    }*/
 }

@@ -12,6 +12,10 @@ public class CocktailId {
     public CocktailId() {
     }
 
+    public CocktailId(UUID cocktailId) {
+        this.cocktailId = cocktailId;
+    }
+
     /* GETTERS & SETTERS */
 
     public UUID getCocktailId() {
