@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.external.cocktail;
+package com.ezgroceries.shoppinglist.services.external;
 
 import java.util.List;
 

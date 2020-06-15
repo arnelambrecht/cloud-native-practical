@@ -2,8 +2,7 @@ package com.ezgroceries.shoppinglist.controllers;
 
 import com.ezgroceries.shoppinglist.controllers.contracts.CocktailId;
 import com.ezgroceries.shoppinglist.controllers.contracts.ShoppingListCreateRequest;
-import com.ezgroceries.shoppinglist.internal.cocktail.CocktailResource;
-import com.ezgroceries.shoppinglist.internal.shoppinglist.ShoppingListResource;
+import com.ezgroceries.shoppinglist.model.ShoppingListResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(value = "/shopping-lists", produces = "application/json")
@@ -23,9 +20,7 @@ public class ShoppingListController {
     public ShoppingListResource createShoppingList(@RequestBody ShoppingListCreateRequest shoppingListCreateRequest) {
         // Create a new shoppingList and store it...
         // Right now the id is set manually.
-        ShoppingListResource newShoppingList = new ShoppingListResource(shoppingListCreateRequest.getName());
-
-        return newShoppingList;
+        return new ShoppingListResource(shoppingListCreateRequest.getName());
     }
 
     @PostMapping(value = "/{shoppingListId}/cocktails")

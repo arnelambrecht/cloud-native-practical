@@ -1,8 +1,8 @@
 package com.ezgroceries.shoppinglist.services;
 
-import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBClient;
-import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBResponse;
-import com.ezgroceries.shoppinglist.internal.cocktail.CocktailResource;
+import com.ezgroceries.shoppinglist.services.external.CocktailDBClient;
+import com.ezgroceries.shoppinglist.services.external.CocktailDBResponse;
+import com.ezgroceries.shoppinglist.model.CocktailResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.web;
+package com.ezgroceries.shoppinglist.controllers;
 
 import com.ezgroceries.shoppinglist.controllers.ShoppingListController;
 import org.junit.jupiter.api.Test;
