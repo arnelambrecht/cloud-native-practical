@@ -1,5 +1,7 @@
 package com.ezgroceries.shoppinglist.internal.shoppinglist;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -12,11 +14,16 @@ public class ShoppingListResource {
     private List<String> ingredients;
 
     /* CONSTRUCTORS */
-
     public ShoppingListResource(UUID shoppingListId, String name, List<String> ingredients) {
         this.shoppingListId = shoppingListId;
         this.name = name;
         this.ingredients = ingredients;
+    }
+
+    public ShoppingListResource(String name) {
+        this.shoppingListId = UUID.randomUUID();
+        this.name = name;
+        this.ingredients = new ArrayList<>();
     }
 
     /* GETTERS & SETTERS */

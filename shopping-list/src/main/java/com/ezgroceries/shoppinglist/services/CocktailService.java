@@ -1,6 +1,7 @@
-package com.ezgroceries.shoppinglist.external.cocktail;
+package com.ezgroceries.shoppinglist.services;
 
-import com.ezgroceries.shoppinglist.internal.cocktail.CocktailService;
+import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBClient;
+import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBResponse;
 import com.ezgroceries.shoppinglist.internal.cocktail.CocktailResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,11 +11,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class CocktailDBService implements CocktailService {
+public class CocktailService {
     @Autowired
     CocktailDBClient cocktailDBClient;
 
-    @Override
     public List<CocktailResource> searchCocktails(String search) {
         List<CocktailResource> cocktailResourceList = new ArrayList<>();
 

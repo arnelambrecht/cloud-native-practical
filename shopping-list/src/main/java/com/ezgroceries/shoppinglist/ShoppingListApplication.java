@@ -1,7 +1,5 @@
 package com.ezgroceries.shoppinglist;
 
-import com.ezgroceries.shoppinglist.external.cocktail.CocktailDBService;
-import com.ezgroceries.shoppinglist.internal.cocktail.CocktailService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -19,11 +17,6 @@ public class ShoppingListApplication {
 	public static void main(String[] args) {
 		// This is the starting point of the application
 		SpringApplication.run(ShoppingListApplication.class, args);
-	}
-
-	@Bean
-	public CocktailService cocktailService() {
-		return new CocktailDBService();
 	}
 
 	@Bean
