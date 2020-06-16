@@ -8,10 +8,12 @@ public class ShoppingListCreateRequest {
 
     private String name;
 
+
     /* CONSTRUCTORS */
 
     public ShoppingListCreateRequest() {
     }
+
 
     /* GETTERS & SETTERS */
 

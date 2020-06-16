@@ -7,6 +7,7 @@ public class CocktailId {
 
     private UUID cocktailId;
 
+
     /* CONSTRUCTORS */
 
     public CocktailId() {

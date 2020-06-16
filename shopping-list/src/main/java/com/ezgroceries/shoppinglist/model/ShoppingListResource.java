@@ -14,6 +14,7 @@ public class ShoppingListResource {
     private List<String> ingredients;
 
     /* CONSTRUCTORS */
+
     public ShoppingListResource(UUID shoppingListId, String name, List<String> ingredients) {
         this.shoppingListId = shoppingListId;
         this.name = name;
@@ -31,6 +32,7 @@ public class ShoppingListResource {
         this.name = name;
         this.ingredients = new ArrayList<>();
     }
+
 
     /* GETTERS & SETTERS */
 

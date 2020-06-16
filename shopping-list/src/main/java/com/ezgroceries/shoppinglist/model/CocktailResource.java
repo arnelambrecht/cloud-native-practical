@@ -14,10 +14,14 @@ public class CocktailResource {
     private String image;
     private Set<String> ingredients;
 
+
     /* CONSTRUCTORS */
 
-    public CocktailResource(UUID cocktailId, String name, String glass, String instructions, String image, Set<String> ingredients) {
+    public CocktailResource() {
 
+    }
+
+    public CocktailResource(UUID cocktailId, String name, String glass, String instructions, String image, Set<String> ingredients) {
         this.cocktailId = cocktailId;
         this.name = name;
         this.glass = glass;
@@ -26,9 +30,6 @@ public class CocktailResource {
         this.ingredients = ingredients;
     }
 
-    public CocktailResource() {
-
-    }
 
     /* GETTERS & SETTERS */
 

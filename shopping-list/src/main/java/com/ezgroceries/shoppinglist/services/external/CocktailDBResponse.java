@@ -7,6 +7,7 @@ public class CocktailDBResponse {
 
     private List<DrinkResource> drinks;
 
+
     /* GETTERS & SETTERS */
 
     public List<DrinkResource> getDrinks() {
@@ -16,6 +17,7 @@ public class CocktailDBResponse {
     public void setDrinks(List<DrinkResource> drinks) {
         this.drinks = drinks;
     }
+
 
     /* OTHER */
 

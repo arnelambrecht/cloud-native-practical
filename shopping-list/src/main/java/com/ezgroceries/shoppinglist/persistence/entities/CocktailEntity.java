@@ -28,25 +28,15 @@ public class CocktailEntity {
 
     /* GETTERS & SETTERS */
 
-    public UUID getEntityId() {
-        return entityId;
-    }
+    public UUID getEntityId() { return entityId; }
 
-    public void setEntityId(UUID entityId) {
-        this.entityId = entityId;
-    }
+    public void setEntityId(UUID entityId) { this.entityId = entityId; }
 
-    public String getIdDrink() {
-        return idDrink;
-    }
+    public String getIdDrink() { return idDrink; }
 
-    public void setIdDrink(String idDrink) {
-        this.idDrink = idDrink;
-    }
+    public void setIdDrink(String idDrink) { this.idDrink = idDrink; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;
@@ -58,5 +48,15 @@ public class CocktailEntity {
 
     public void setIngredients(Set<String> ingredients) {
         this.ingredients = ingredients;
+    }
+
+
+    /* CONSTRUCTORS */
+
+    public CocktailEntity() {
+    }
+
+    public CocktailEntity(UUID entityId) {
+        this.entityId = entityId;
     }
 }

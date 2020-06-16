@@ -13,8 +13,13 @@ import java.util.stream.Collectors;
 
 @Service
 public class CocktailService {
+    /* FIELDS */
+
     private CocktailDBClient cocktailDBClient;
     private CocktailRepository cocktailRepository;
+
+
+    /* CONSTRUCTORS */
 
     @Autowired
     public CocktailService(CocktailRepository cocktailRepository, CocktailDBClient cocktailDBClient) {
@@ -22,10 +27,15 @@ public class CocktailService {
         this.cocktailDBClient = cocktailDBClient;
     }
 
+
+    /* PUBLIC METHODS */
+
     public List<CocktailResource> searchCocktails(String search) {
         List<CocktailResource> cocktailResourceList = new ArrayList<>();
 
         CocktailDBResponse cocktailDBResponse = cocktailDBClient.searchCocktails(search);
+        if (null == cocktailDBResponse) return new ArrayList<>();
+
         List<CocktailDBResponse.DrinkResource> drinkResourceList = cocktailDBResponse.getDrinks();
 
         return this.mergeCocktails(drinkResourceList);
@@ -35,9 +45,10 @@ public class CocktailService {
         return (this.cocktailRepository.countByEntityId(cocktailId) > 0);
     }
 
+
     /* PRIVATE METHODS */
 
-    public List<CocktailResource> mergeCocktails(List<CocktailDBResponse.DrinkResource> drinks) {
+    private List<CocktailResource> mergeCocktails(List<CocktailDBResponse.DrinkResource> drinks) {
         //Get all the idDrink attributes
         List<String> ids = drinks.stream().map(CocktailDBResponse.DrinkResource::getIdDrink).collect(Collectors.toList());
 

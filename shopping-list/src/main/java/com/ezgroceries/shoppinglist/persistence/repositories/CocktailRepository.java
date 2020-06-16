@@ -7,10 +7,17 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CocktailRepository extends Repository<CocktailEntity, UUID> {
+    /* CREATE */
+
+    CocktailEntity save(CocktailEntity cocktailEntity);
+
+
+    /* FIND */
 
     List<CocktailEntity> findByIdDrinkIn(List<String> idDrinks);
 
-    CocktailEntity save(CocktailEntity cocktailEntity);
+
+    /* OTHER */
 
     long countByEntityId(UUID cocktailId);
 

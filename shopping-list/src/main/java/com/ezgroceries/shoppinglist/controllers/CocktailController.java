@@ -30,9 +30,9 @@ public class CocktailController {
 
     @GetMapping
     public List<CocktailResource> getCocktails(@RequestParam String search) {
+        // Return a list of all cocktails with the request param search in their name.
+        // return getDummyResources();
         return cocktailService.searchCocktails(search);
-
-        //return getDummyResources();
     }
 
     /*private List<CocktailResource> getDummyResources() {
