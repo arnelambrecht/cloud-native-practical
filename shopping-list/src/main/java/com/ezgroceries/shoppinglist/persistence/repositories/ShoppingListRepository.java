@@ -16,6 +16,10 @@ public interface ShoppingListRepository extends Repository<ShoppingListEntity, U
 
     ShoppingListEntity findByEntityId(UUID shoppingListId);
 
+    ShoppingListEntity findByEntityIdAndUserName(UUID shoppingListId, String userName);
+
+    List<ShoppingListEntity> findByUserName(String userName);
+
     List<ShoppingListEntity> findAll();
 
 }

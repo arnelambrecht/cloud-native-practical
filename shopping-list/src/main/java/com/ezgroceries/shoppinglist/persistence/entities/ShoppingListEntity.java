@@ -16,6 +16,9 @@ public class ShoppingListEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "username")
+    private String userName;
+
     @OneToMany
     @JoinTable(
             name = "cocktail_shopping_list",
@@ -29,9 +32,10 @@ public class ShoppingListEntity {
     public ShoppingListEntity() {
     }
 
-    public ShoppingListEntity(UUID entityId, String name) {
+    public ShoppingListEntity(UUID entityId, String name, String userName) {
         this.entityId = entityId;
         this.name = name;
+        this.userName = userName;
     }
 
 
@@ -64,4 +68,8 @@ public class ShoppingListEntity {
     public void addCocktail(CocktailEntity cocktail) {
         this.cocktails.add(cocktail);
     }
+
+    public String getUserName() { return userName; }
+
+    public void setUserName(String userName) { this.userName = userName; }
 }
