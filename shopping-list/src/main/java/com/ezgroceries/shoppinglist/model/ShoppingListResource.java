@@ -33,6 +33,9 @@ public class ShoppingListResource {
         this.ingredients = new ArrayList<>();
     }
 
+    public ShoppingListResource() {
+    }
+
 
     /* GETTERS & SETTERS */
 
